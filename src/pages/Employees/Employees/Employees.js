@@ -5,7 +5,7 @@ const Employees = () => {
   return (
     <div>
       <div className="flex justify-between mb-5">
-        <h2 className=" font-semibold text-lg">List All Employees</h2>
+        <h2 className=" text-lg font-semibold text-gray-700">List All Employees</h2>
         <Link to='/addnewemployee'>
           {" "}
           <button className=" btn btn-sm btn-primary">+ Add New</button>
