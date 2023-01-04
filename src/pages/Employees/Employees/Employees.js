@@ -9,7 +9,7 @@ const Employees = () => {
       </div>
       <div className="flex justify-between mb-5">
         <h2 className=" text-lg font-semibold text-gray-700">
-          List All Employees
+          List of Employees
         </h2>
         <Link to="/addnewemployee">
           {" "}
