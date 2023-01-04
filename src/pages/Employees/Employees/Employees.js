@@ -10,7 +10,7 @@ const Employees = () => {
       <div className="bg-white p-5 rounded-md">
         <div className="flex justify-between mb-5">
           <h2 className=" text-lg font-semibold text-gray-700">
-            List of Employees
+            List All Employees
           </h2>
           <Link to="/addnewemployee">
             {" "}
