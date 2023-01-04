@@ -3,7 +3,7 @@ import React from 'react';
 const AddNewEmployee = () => {
     return (
         <div>
-            Add new Employee
+             Human resource
         </div>
     );
 };
