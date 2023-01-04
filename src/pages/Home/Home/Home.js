@@ -5,9 +5,8 @@ import { FiHome} from "react-icons/fi";
 import { IconName, IoPeopleOutline } from "react-icons/io5";
 const Home = () => {
   return (
-    
-    <div>
-        Home
+    <div >
+      Home
     </div>
   );
 };

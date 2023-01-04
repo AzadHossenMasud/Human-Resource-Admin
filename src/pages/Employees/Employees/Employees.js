@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 const Employees = () => {
   return (
     <div>
+      <div className="mb-5 text-black font-semibold">
+        Home {">"} <span className="font-normal">Employees</span>
+      </div>
       <div className="flex justify-between mb-5">
-        <h2 className=" text-lg font-semibold text-gray-700">List All Employees</h2>
-        <Link to='/addnewemployee'>
+        <h2 className=" text-lg font-semibold text-gray-700">
+          List All Employees
+        </h2>
+        <Link to="/addnewemployee">
           {" "}
           <button className=" btn btn-sm btn-primary">+ Add New</button>
         </Link>
