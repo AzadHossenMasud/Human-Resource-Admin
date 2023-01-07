@@ -8,6 +8,7 @@ const AddNewEmployee = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -48,6 +49,7 @@ const AddNewEmployee = () => {
           .then((employeeResult) => {
             toast.success('Employee Added')
             // console.log(employeeResult);
+            reset()
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -75,7 +77,7 @@ const AddNewEmployee = () => {
                 className="input input-bordered"
                 {...register("firstName", {
                   required: true,
-                  pattern: /^[A-Za-z]+$/i,
+                  
                 })}
                 aria-invalid={errors.firstName ? "true" : "false"}
               />
@@ -85,11 +87,7 @@ const AddNewEmployee = () => {
                 First name is required
               </p>
             )}
-            {errors.firstName?.type === "pattern" && (
-              <p className=" text-red-600" role="alert">
-                Name Should be Alphabet
-              </p>
-            )}
+            
           </div>
           {/* Last Name */}
           <div className="form-control">
@@ -103,7 +101,6 @@ const AddNewEmployee = () => {
                 className="input input-bordered"
                 {...register("lastName", {
                   required: true,
-                  pattern: /^[A-Za-z]+$/i,
                 })}
                 aria-invalid={errors.lastName ? "true" : "false"}
               />
@@ -113,11 +110,7 @@ const AddNewEmployee = () => {
                 First name is required
               </p>
             )}
-            {errors.lastName?.type === "pattern" && (
-              <p className=" text-red-600" role="alert">
-                Name Should be Alphabet
-              </p>
-            )}
+            
           </div>
           {/* Employee ID*/}
           <div className="form-control">
