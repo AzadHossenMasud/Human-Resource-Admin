@@ -17,7 +17,8 @@ const Employees = () => {
   return (
     <div>
       <div className="mb-5 text-black font-normal text-base">
-        Home {">"} <span className="font-light">Employees</span>
+        Home {">"}{" "}
+        <span className="font-light">Employees</span>
       </div>
       <div className="bg-white p-5 rounded-md">
         <div className="flex justify-between mb-5">
@@ -26,7 +27,9 @@ const Employees = () => {
           </h2>
           <Link to="/addnewemployee">
             {" "}
-            <button className=" btn btn-sm btn-primary">+ Add New</button>
+            <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700 border-none">
+              + Add New
+            </button>
           </Link>
         </div>
         <div className="overflow-x-auto w-full">
@@ -43,9 +46,9 @@ const Employees = () => {
             </thead>
             <tbody>
               {/* <!-- row 1 --> */}
-              
-              {
-                employees.map( employee =><tr key={employee._id}>
+
+              {employees.map((employee) => (
+                <tr key={employee._id}>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
@@ -58,18 +61,16 @@ const Employees = () => {
                       </div>
                       <div>
                         <div className="font-bold">{employee.fullName}</div>
+                        <div>{employee.email}</div>
                       </div>
                     </div>
                   </td>
-                  <td>
-                    {employee.designation}
-                  </td>
+                  <td>{employee.designation}</td>
                   <td>{employee.contactNumber}</td>
                   <td>{employee.gender}</td>
                   <td>{employee.role}</td>
-                </tr> )
-              }
-              
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
