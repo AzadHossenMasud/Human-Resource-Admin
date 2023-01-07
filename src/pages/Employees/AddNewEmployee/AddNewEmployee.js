@@ -59,6 +59,7 @@ const AddNewEmployee = () => {
         console.error("Error:", error);
       });
   };
+  
   return (
     <div>
       <h2 className=" text-lg font-semibold text-gray-700">Add New Employee</h2>

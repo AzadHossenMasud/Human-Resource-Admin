@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Admin from "../layout/Admin";
+import AddAnnouncement from "../pages/Announcement/AddAnnouncement/AddAnnouncement";
+import Announcement from "../pages/Announcement/Announcement/Announcement";
 import AddNewEmployee from "../pages/Employees/AddNewEmployee/AddNewEmployee";
 import Employees from "../pages/Employees/Employees/Employees";
 import Home from "../pages/Home/Home/Home";
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
       {
         path: "/addnewemployee",
         element: <AddNewEmployee></AddNewEmployee>,
+      },
+      {
+        path: "/announcement",
+        element: <Announcement></Announcement>,
+      },
+      {
+        path: "/addannouncement",
+        element: <AddAnnouncement></AddAnnouncement>,
       },
     ],
   },

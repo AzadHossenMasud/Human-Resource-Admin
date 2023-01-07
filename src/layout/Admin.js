@@ -3,6 +3,7 @@ import { FiHome } from "react-icons/fi";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../pages/Shared/Header/Header";
+import { MdOutlineAnnouncement } from "react-icons/md";
 
 const Admin = () => {
   return (
@@ -33,6 +34,11 @@ const Admin = () => {
               <li>
                 <Link to="/employees">
                   <IoPeopleOutline></IoPeopleOutline> Emloyees
+                </Link>
+              </li>
+              <li>
+                <Link to="/announcement">
+                  <MdOutlineAnnouncement></MdOutlineAnnouncement> Announcement
                 </Link>
               </li>
             </ul>

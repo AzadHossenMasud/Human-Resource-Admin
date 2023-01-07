@@ -12,7 +12,11 @@ const Employees = () => {
       .then((res) => res.json()),
 
   });
-  console.log(employees);
+
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+  // console.log(employees);
 
   return (
     <div>
