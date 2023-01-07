@@ -1,7 +1,19 @@
 import React from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
 const Employees = () => {
+
+  const url=`http://localhost:5000/employee`
+  const { data: employees = [], isLoading, isError, } = useQuery({
+    queryKey: ["employees"],
+    queryFn: async () =>
+      await fetch(url)
+      .then((res) => res.json()),
+
+  });
+  console.log(employees);
+
   return (
     <div>
       <div className="mb-5 text-black font-normal text-base">
