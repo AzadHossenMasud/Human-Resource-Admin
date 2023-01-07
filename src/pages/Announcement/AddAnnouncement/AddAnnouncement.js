@@ -22,9 +22,9 @@ const AddAnnouncement = () => {
      
     };
 
-    console.log(announcement);
+    // console.log(announcement);
 
-    fetch("http://localhost:5000/announcement", {
+    fetch("https://human-resource-server.vercel.app/announcement", {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",
@@ -124,21 +124,18 @@ const AddAnnouncement = () => {
               <span className="label-text">Department</span>
             </label>
             <label className="input-group">
-              <input
-                type="text"
-                placeholder="Department"
-                className="input input-bordered"
-                {...register("department", {
-                  required: true,
-                })}
-                aria-invalid={errors.department ? "true" : "false"}
-              />
+              <select
+                {...register("department")}
+                className="select select-bordered w-2/3 max-w-xs"
+              >
+                <option value="Engineering">Engineering</option>
+                <option value="Training">Training</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+              </select>
             </label>
-            {errors.department?.type === "required" && (
-              <p className=" text-red-600" role="alert">
-                Department is required
-              </p>
-            )}
           </div>
 
           {/* summery */}
