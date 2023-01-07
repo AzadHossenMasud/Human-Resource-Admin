@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Employees = () => {
 
-  const url=`http://https://human-resource-server.vercel.app/employee`
+  const url=`https://human-resource-server.vercel.app/employee`
   const { data: employees = [], isLoading, isError, } = useQuery({
     queryKey: ["employees"],
     queryFn: async () =>
