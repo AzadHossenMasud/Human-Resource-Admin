@@ -37,7 +37,7 @@ const AddNewEmployee = () => {
           role: data.role,
           profilePicture: result.data.url,
         };
-        fetch("http://localhost:5000/employee", {
+        fetch("http://https://human-resource-server.vercel.app/employee", {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",
