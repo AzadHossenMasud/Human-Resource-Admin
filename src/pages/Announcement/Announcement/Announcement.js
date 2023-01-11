@@ -27,51 +27,44 @@ const Announcement = () => {
           </h2>
           <Link to="/addannouncement">
             {" "}
-            <button className=" btn btn-sm btn-primary">+ Add New</button>
+            <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700">
+              + Add New
+            </button>
           </Link>
         </div>
       </div>
 
       <div className="overflow-x-auto w-full">
-          <table className="table w-full">
-            {/* <!-- head --> */}
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Department</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* <!-- row 1 --> */}
-              
-              {
-                announcements.map( announcement =><tr key={announcement?._id}>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      
-                      <div>
-                        <div className="font-bold">{announcement?.title}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                  {announcement?.department}
-                  </td>
-                  <td>
-                    {announcement?.startDate}
-                  </td>
-                  <td>{announcement?.endDate}</td>
-                  
-                </tr> )
-              }
-              
-            </tbody>
-          </table>
-        </div>
+        <table className="table w-full">
+          {/* <!-- head --> */}
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Department</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* <!-- row 1 --> */}
 
-      
+            {announcements.map((announcement) => (
+              <tr key={announcement?._id}>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <div>
+                      <div className="font-bold">{announcement?.title}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>{announcement?.department}</td>
+                <td>{announcement?.startDate}</td>
+                <td>{announcement?.endDate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

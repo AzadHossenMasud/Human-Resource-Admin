@@ -26,7 +26,7 @@ const Admin = () => {
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 bg-base-100 text-base-content font-semibold text-lg">
               {/* <!-- Sidebar content here --> */}
-              <li>
+              <li className="rounded-none">
                 <Link to="/" className="active:bg-sky-900">
                   <FiHome></FiHome>Home
                 </Link>
@@ -37,7 +37,7 @@ const Admin = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/announcement">
+                <Link to="/announcement" className="active:bg-sky-900">
                   <MdOutlineAnnouncement></MdOutlineAnnouncement> Announcement
                 </Link>
               </li>
