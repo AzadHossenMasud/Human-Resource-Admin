@@ -5,6 +5,7 @@ import Announcement from "../pages/Announcement/Announcement/Announcement";
 import AddNewEmployee from "../pages/Employees/AddNewEmployee/AddNewEmployee";
 import Employees from "../pages/Employees/Employees/Employees";
 import Home from "../pages/Home/Home/Home";
+import LoginPage from "../pages/Login/LoginPage";
 
 export const router = createBrowserRouter([
   {
@@ -32,5 +33,9 @@ export const router = createBrowserRouter([
         element: <AddAnnouncement></AddAnnouncement>,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginPage></LoginPage>
   },
 ]);

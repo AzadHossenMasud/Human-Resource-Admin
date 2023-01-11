@@ -27,7 +27,7 @@ const Announcement = () => {
           </h2>
           <Link to="/addannouncement">
             {" "}
-            <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700">
+            <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700 border-none">
               + Add New
             </button>
           </Link>
