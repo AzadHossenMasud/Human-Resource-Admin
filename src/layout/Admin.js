@@ -33,7 +33,7 @@ const Admin = () => {
               </li>
               <li>
                 <Link to="/admin/employees" className="active:bg-sky-900">
-                  <IoPeopleOutline></IoPeopleOutline> Emloyees
+                  <IoPeopleOutline></IoPeopleOutline> Employees
                 </Link>
               </li>
               <li>
