@@ -36,7 +36,7 @@ const Employees = () => {
             </button>
           </Link>
         </div>
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-scroll w-full">
           <table className="table w-full">
             {/* <!-- head --> */}
             <thead>
