@@ -27,17 +27,17 @@ const Admin = () => {
             <ul className="menu p-4 w-80 bg-base-100 text-base-content font-semibold text-lg">
               {/* <!-- Sidebar content here --> */}
               <li className="rounded-none">
-                <Link to="/" className="active:bg-sky-900">
+                <Link to="/admin" className="active:bg-sky-900">
                   <FiHome></FiHome>Home
                 </Link>
               </li>
               <li>
-                <Link to="/employees" className="active:bg-sky-900">
+                <Link to="/admin/employees" className="active:bg-sky-900">
                   <IoPeopleOutline></IoPeopleOutline> Emloyees
                 </Link>
               </li>
               <li>
-                <Link to="/announcement" className="active:bg-sky-900">
+                <Link to="/admin/announcement" className="active:bg-sky-900">
                   <MdOutlineAnnouncement></MdOutlineAnnouncement> Announcement
                 </Link>
               </li>

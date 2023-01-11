@@ -6,36 +6,37 @@ import AddNewEmployee from "../pages/Employees/AddNewEmployee/AddNewEmployee";
 import Employees from "../pages/Employees/Employees/Employees";
 import Home from "../pages/Home/Home/Home";
 import LoginPage from "../pages/Login/LoginPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Admin></Admin>,
+    path: "/admin",
+    element: <PrivateRoute><Admin></Admin></PrivateRoute>,
     children: [
       {
-        path: "/",
+        path: "/admin",
         element: <Home></Home>,
       },
       {
-        path: "/employees",
+        path: "/admin/employees",
         element: <Employees></Employees>,
       },
       {
-        path: "/addnewemployee",
+        path: "/admin/addnewemployee",
         element: <AddNewEmployee></AddNewEmployee>,
       },
       {
-        path: "/announcement",
+        path: "/admin/announcement",
         element: <Announcement></Announcement>,
       },
       {
-        path: "/addannouncement",
+        path: "/admin/addannouncement",
         element: <AddAnnouncement></AddAnnouncement>,
       },
     ],
   },
   {
-    path: "/login",
+    path: "/",
     element: <LoginPage></LoginPage>
   },
 ]);

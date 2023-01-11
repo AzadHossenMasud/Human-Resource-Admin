@@ -29,7 +29,7 @@ const Employees = () => {
           <h2 className=" text-lg font-semibold text-gray-700">
             List All Employees
           </h2>
-          <Link to="/addnewemployee">
+          <Link to="/admin/addnewemployee">
             {" "}
             <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700 border-none">
               + Add New

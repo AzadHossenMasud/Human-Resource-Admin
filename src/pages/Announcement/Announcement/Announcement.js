@@ -25,7 +25,7 @@ const Announcement = () => {
           <h2 className=" text-lg font-semibold text-gray-700">
             List of Announcement
           </h2>
-          <Link to="/addannouncement">
+          <Link to="/admin/addannouncement">
             {" "}
             <button className=" btn btn-sm btn-primary bg-sky-900 hover:bg-sky-700 border-none">
               + Add New
