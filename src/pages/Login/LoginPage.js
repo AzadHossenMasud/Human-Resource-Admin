@@ -73,7 +73,7 @@ const LoginPage = () => {
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
-                    <input type="submit" />
+                    Login
                   </button>
                 </div>
               </div>
