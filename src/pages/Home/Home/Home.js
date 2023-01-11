@@ -11,7 +11,7 @@ const Home = () => {
       <div className="card w-96 bg-base-100 shadow-xl mt-5">
         <div className="card-body">
           <h2 className="card-title justify-center">Total Employees</h2>
-          <p className="font-bold text-9xl text-center">25</p>
+          <p className="font-bold text-8xl text-center">25</p>
           <div className="card-actions justify-center mt-3">
             <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
               Go to Employees
