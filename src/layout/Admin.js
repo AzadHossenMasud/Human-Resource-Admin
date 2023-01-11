@@ -41,6 +41,11 @@ const Admin = () => {
                   <MdOutlineAnnouncement></MdOutlineAnnouncement> Announcement
                 </Link>
               </li>
+              <li>
+                <Link to="/admin/attendence" className="active:bg-sky-900">
+                  <MdOutlineAnnouncement></MdOutlineAnnouncement> Attendence
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
