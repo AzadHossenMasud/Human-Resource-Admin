@@ -12,7 +12,7 @@ const Admin = () => {
         <Header></Header>
         <div className="drawer drawer-mobile bg-base-300">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content p-5 bg-slate-50">
+          <div className="drawer-content p-5 bg-sky-50">
             {/* <!-- Page content here --> */}
             {/* <label
             htmlFor="my-drawer-2"
