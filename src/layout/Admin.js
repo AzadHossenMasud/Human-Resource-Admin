@@ -4,6 +4,8 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../pages/Shared/Header/Header";
 import { MdOutlineAnnouncement } from "react-icons/md";
+import { FcOvertime } from "react-icons/fc";
+import { AiOutlineFieldTime } from "react-icons/ai";
 
 const Admin = () => {
   return (
@@ -43,7 +45,12 @@ const Admin = () => {
               </li>
               <li>
                 <Link to="/admin/attendence" className="active:bg-sky-900">
-                  <MdOutlineAnnouncement></MdOutlineAnnouncement> Attendence
+                  <AiOutlineFieldTime></AiOutlineFieldTime> Attendence
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin/overtime" className="active:bg-sky-900">
+                  <FcOvertime></FcOvertime> Overtime
                 </Link>
               </li>
             </ul>

@@ -7,6 +7,7 @@ import AddNewEmployee from "../pages/Employees/AddNewEmployee/AddNewEmployee";
 import Employees from "../pages/Employees/Employees/Employees";
 import Home from "../pages/Home/Home/Home";
 import LoginPage from "../pages/Login/LoginPage";
+import OverTime from "../pages/OverTime/OverTime";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/admin/attendence",
         element: <Attendence></Attendence>,
+      },
+      {
+        path: "/admin/overtime",
+        element: <OverTime></OverTime>,
       },
     ],
   },

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 
-const Attendence = () => {
+const OverTime = () => {
   const {
     register,
     handleSubmit,
@@ -18,52 +18,41 @@ const Attendence = () => {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["employeesattendence"],
+    queryKey: ["overtimes"],
     queryFn: async () => await fetch(url).then((res) => res.json()),
   });
 
-//   console.log(employees);
+  //   console.log(employees);
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
 
     const employeeData = {
-        employeeId: data.employeeId,
-        date: data.date,
-        inTime: data.inTime,
-        outTime: data.outTime
-
-    }
-    fetch("https://human-resource-server.vercel.app/attendence", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(employeeData),
+      employeeId: data.employeeId,
+      date: data.date,
+      inTime: data.inTime,
+      outTime: data.outTime,
+      reason: data.reason
+    };
+    fetch("https://human-resource-server.vercel.app/overtime", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(employeeData),
+    })
+      .then((response) => response.json())
+      .then((employeeResult) => {
+        toast.success("Overtime Added");
+        // console.log(employeeResult);
+        reset();
       })
-        .then((response) => response.json())
-        .then((employeeResult) => {
-          toast.success('Employee Added')
-          // console.log(employeeResult);
-          reset()
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
-
-     
-
-  //   };
-
-  // 1. Employee Id [dropdown]
-  // 2. Attendance date
-  // 3. In time
-  // 4. Out time
-
   return (
     <div>
-      <h2 className=" text-lg font-semibold text-gray-700">Add New Employee</h2>
+      <h2 className=" text-lg font-semibold text-gray-700">Overtime</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 ">
         <div className=" grid grid-cols-3 justify-between gap-5">
@@ -78,9 +67,10 @@ const Attendence = () => {
                 className="select select-bordered w-2/3 max-w-xs"
               >
                 {employees.map((employee) => (
-                  <option key={employee._id} value={employee.employeeId}>{employee.employeeId}</option>
+                  <option key={employee._id} value={employee.employeeId}>
+                    {employee.employeeId}
+                  </option>
                 ))}
-                
               </select>
             </label>
             {errors.lastName?.type === "required" && (
@@ -157,9 +147,27 @@ const Attendence = () => {
             )}
           </div>
 
-          
-
-
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Reason</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                placeholder="Reason"
+                className="input input-bordered"
+                {...register("reason", {
+                  required: true,
+                })}
+                aria-invalid={errors.reason ? "true" : "false"}
+              />
+            </label>
+            {errors.reason?.type === "required" && (
+              <p className=" text-red-600" role="alert">
+                Employee ID is required
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="flex justify-center mt-5">
@@ -172,4 +180,4 @@ const Attendence = () => {
   );
 };
 
-export default Attendence;
+export default OverTime;
