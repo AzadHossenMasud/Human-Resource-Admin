@@ -13,6 +13,13 @@ const Home = () => {
       .then((res) => res.json()),
 
   });
+  const {
+    data: announcements = []
+  } = useQuery({
+    queryKey: ["announcements"],
+    queryFn: async () => await fetch('https://human-resource-server.vercel.app/announcement').then((res) => res.json()),
+  });
+  console.log(announcements)
   return (
     <div>
       <h1>Home</h1>
@@ -72,7 +79,7 @@ const Home = () => {
         <div className="bg-white p-5 rounded-2xl">
           <div className="flex justify-between mb-5">
             <h2 className=" text-lg font-semibold text-gray-700">
-              List of Announcement
+              Recent Announcements
             </h2>
             <Link to="/admin/Announcement">
               {" "}
@@ -83,36 +90,25 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="overflow-x-auto w-full">
-          <table className="table w-full">
-            {/* <!-- head --> */}
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Department</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div>
-                      <div className="font-bold">Tommorow versity off</div>
-                    </div>
-                  </div>
-                </td>
-                <td>CSE</td>
-                <td className="overflow-none">
-                  Agamikal hortal thakar krone versity bondho thakbe. But
-                  unfortunately, class off thakbe na. shokol class online e nea
-                  hobe. ha ha ha...
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="m-5">
+          <div className="bg-pink-50 rounded-xl">
+            <div className="p-5">
+              <h1 className="text-2xl font-bold">Box Office News!</h1>
+              <p className="text-xs font-normal">
+                <span>CSE</span> Department{" "}
+                <span className="font-bold text-xl text-slate-500">.</span>
+                <span>14/01/2023</span>
+              </p>
+              <p className="py-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+      {/* Announcements section ends here */}
     </div>
   );
 };
