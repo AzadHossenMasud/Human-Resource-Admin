@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
 
 const Announcement = () => {
   const url = `https://human-resource-server.vercel.app/announcement`;
@@ -13,7 +14,22 @@ const Announcement = () => {
     queryFn: async () => await fetch(url).then((res) => res.json()),
   });
 
-  console.log(announcements)
+  // console.log(announcements)
+
+  const handleDelete = (id) => {
+    // console.log(id);
+    fetch(`http://localhost:5000/announcement/${id}`, {
+      method: "DELETE", // or 'PUT'
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -43,6 +59,7 @@ const Announcement = () => {
               <th>Department</th>
               <th>Start Date</th>
               <th>End Date</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -60,6 +77,9 @@ const Announcement = () => {
                 <td>{announcement?.department}</td>
                 <td>{announcement?.startDate}</td>
                 <td>{announcement?.endDate}</td>
+                <td onClick={() => handleDelete(announcement?._id)}>
+                  <MdDelete></MdDelete>
+                </td>
               </tr>
             ))}
           </tbody>
