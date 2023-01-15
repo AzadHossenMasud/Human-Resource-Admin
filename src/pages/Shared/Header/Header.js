@@ -17,7 +17,7 @@ const Header = () => {
     <div>
       <div className="navbar bg-sky-900 text-neutral-content flex justify-between">
         <Link className="btn btn-ghost normal-case text-xl ml-3" to="/admin">
-          HR
+          HR MANAGEMENT
         </Link>
         <button
           className="btn mr-3 bg-sky-900 hover:bg-sky-700 border-none"
