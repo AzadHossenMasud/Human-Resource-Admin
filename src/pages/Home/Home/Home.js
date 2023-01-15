@@ -5,14 +5,19 @@ import { FiHome} from "react-icons/fi";
 import { IconName, IoPeopleOutline } from "react-icons/io5";
 import { useQuery } from "react-query";
 const Home = () => {
-  const url=`https://human-resource-server.vercel.app/employee`
-  const { data: employees = [], isLoading, isError, } = useQuery({
-    queryKey: ["employeesnumber"],
+  const url=`https://human-resource-server.vercel.app/home`
+  const { data: homeElements = [], isLoading, isError, } = useQuery({
+    queryKey: ["home"],
     queryFn: async () =>
       await fetch(url)
       .then((res) => res.json()),
 
   });
+
+  const {latestAnnouncement,todaysAttendenceCount, totalEmployee} = homeElements
+
+  // console.log(latestAnnouncement)
+  
   return (
     <div>
       <h1>Home</h1>
@@ -20,7 +25,7 @@ const Home = () => {
         <div className="card w-auto bg-base-100 shadow-xl mt-5">
           <div className="card-body">
             <h2 className="card-title text-center">Total no of Employees</h2>
-            <p className="font-bold text-8xl text-center">{employees.length}</p>
+            <p className="font-bold text-8xl text-center">{totalEmployee}</p>
             <div className="card-actions justify-center mt-3">
               <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
                 Go to Employees
@@ -32,7 +37,7 @@ const Home = () => {
         <div className="card w-auto bg-base-100 shadow-xl mt-5 ml-3">
           <div className="card-body">
             <h2 className="card-title text-center">Total Attendance</h2>
-            <p className="font-bold text-8xl text-center">{employees.length}</p>
+            <p className="font-bold text-8xl text-center">{todaysAttendenceCount}</p>
             <div className="card-actions justify-center mt-3">
               <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
                 Go to Attendance
@@ -41,29 +46,29 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="card w-auto bg-base-100 shadow-xl mt-5 ml-3">
+        {/* <div className="card w-auto bg-base-100 shadow-xl mt-5 ml-3">
           <div className="card-body">
             <h2 className="card-title text-center">Overtime Employees</h2>
-            <p className="font-bold text-8xl text-center">{employees.length}</p>
+            <p className="font-bold text-8xl text-center">5</p>
             <div className="card-actions justify-center mt-3">
               <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
                 Go to Overtime
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="card w-auto bg-base-100 shadow-xl mt-5 ml-3">
+        {/* <div className="card w-auto bg-base-100 shadow-xl mt-5 ml-3">
           <div className="card-body">
             <h2 className="card-title text-center">Recent Announcments</h2>
-            <p className="font-bold text-8xl text-center">{employees.length}</p>
+            <p className="font-bold text-8xl text-center">3</p>
             <div className="card-actions justify-center mt-3">
               <button className="btn btn-primary bg-sky-900 hover:bg-sky-700 border-none">
                 Announcment
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* list of Announcments */}
@@ -72,7 +77,7 @@ const Home = () => {
         <div className="bg-white p-5 rounded-2xl">
           <div className="flex justify-between mb-5">
             <h2 className=" text-lg font-semibold text-gray-700">
-              List of Announcement
+              Recent Announcements
             </h2>
             <Link to="/admin/Announcement">
               {" "}
@@ -83,36 +88,23 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="overflow-x-auto w-full">
-          <table className="table w-full">
-            {/* <!-- head --> */}
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Department</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div>
-                      <div className="font-bold">Tommorow versity off</div>
-                    </div>
-                  </div>
-                </td>
-                <td>CSE</td>
-                <td className="overflow-none">
-                  Agamikal hortal thakar krone versity bondho thakbe. But
-                  unfortunately, class off thakbe na. shokol class online e nea
-                  hobe. ha ha ha...
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="m-5">
+          <div className="bg-pink-50 rounded-xl">
+            <div className="p-5">
+              <h1 className="text-2xl font-bold">{latestAnnouncement?.title}</h1>
+              <p className="text-xs font-normal">
+                <span>{latestAnnouncement?.department}</span> Department{" "}
+                <span className="font-bold text-xl text-slate-500">.</span>
+                <span>{latestAnnouncement?.startDate}</span>
+              </p>
+              <p className="py-5">
+              {latestAnnouncement?.description}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+      {/* Announcements section ends here */}
     </div>
   );
 };
