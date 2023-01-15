@@ -63,7 +63,7 @@ const Attendence = () => {
 
   return (
     <div>
-      <h2 className=" text-lg font-semibold text-gray-700">Add New Employee</h2>
+      <h2 className=" text-lg font-semibold text-gray-700">Add New Attendance</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 ">
         <div className=" grid grid-cols-3 justify-between gap-5">
